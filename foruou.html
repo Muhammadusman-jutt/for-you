@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A Secret For You ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#05000d;
+    color:white;
+    overflow:hidden;
+}
+
+/* STARS */
+
+.star{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.2}
+    to{opacity:1}
+}
+
+/* MAIN */
+
+.page{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.card{
+    width:90%;
+    max-width:650px;
+    padding:45px 25px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 0 50px rgba(255,0,140,.15);
+}
+
+h1{
+    font-size:42px;
+    color:#ff8fc8;
+    text-shadow:0 0 25px #ff1680;
+    margin-bottom:15px;
+}
+
+p{
+    color:#f5ddea;
+    line-height:1.7;
+}
+
+/* MOON */
+
+.moon{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:#fff5fb;
+    margin:0 auto 30px;
+
+    box-shadow:
+    0 0 20px #fff,
+    0 0 60px #ffbde0,
+    0 0 100px #ff3f9f;
+
+    animation:moonFloat 3s ease-in-out infinite;
+}
+
+@keyframes moonFloat{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* BUTTONS */
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+button{
+    border:none;
+    padding:15px 25px;
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#ff176b,#a832ff);
+
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 0 20px rgba(255,0,150,.4);
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.06);
+    box-shadow:0 0 35px rgba(255,0,150,.8);
+}
+
+/* HIDDEN */
+
+.hidden{
+    display:none;
+}
+
+/* MESSAGE */
+
+.message{
+    font-size:20px;
+    min-height:80px;
+    margin:25px 0;
+    color:#ffc7e4;
+}
+
+/* HEART */
+
+.bigHeart{
+    font-size:130px;
+    cursor:pointer;
+
+    filter:drop-shadow(0 0 30px #ff1744);
+
+    animation:beat 1.2s infinite;
+}
+
+@keyframes beat{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+/* RING */
+
+.ring{
+    width:170px;
+    height:170px;
+
+    border:3px solid #ff4da6;
+    border-radius:50%;
+
+    margin:20px auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:ring 2s infinite;
+}
+
+@keyframes ring{
+    0%{
+        box-shadow:0 0 10px #ff4da6;
+    }
+
+    50%{
+        box-shadow:
+        0 0 30px #ff4da6,
+        0 0 70px #ff167f;
+    }
+
+    100%{
+        box-shadow:0 0 10px #ff4da6;
+    }
+}
+
+/* FINAL */
+
+.final h2{
+    color:#ff9dcc;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.finalText{
+    font-size:18px;
+    line-height:2;
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+
+    animation:float 5s linear forwards;
+
+    z-index:100;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0) rotate(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .moon{
+        width:100px;
+        height:100px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- STARS -->
+
+<script>
+
+for(let i=0;i<100;i++){
+
+    let star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+
+    star.style.animationDelay=Math.random()*2+"s";
+
+    document.body.appendChild(star);
+}
+
+</script>
+
+
+<!-- PAGE 1 -->
+
+<div class="page" id="page1">
+
+<div class="card">
+
+    <div class="moon"></div>
+
+    <h1>Hey You... 🌙</h1>
+
+    <p>
+        I made a tiny secret world for someone special.
+        <br>
+        But you'll have to unlock it yourself. ❤️
+    </p>
+
+    <div class="buttons">
+
+        <button onclick="start()">
+            ✨ Enter My Little World
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- PAGE 2 -->
+
+<div class="page hidden" id="page2">
+
+<div class="card">
+
+    <h1>Choose Carefully 💭</h1>
+
+    <p>
+        Only one of these buttons knows the secret...
+    </p>
+
+    <div class="buttons">
+
+        <button onclick="wrong()">
+            🌙 The Moon
+        </button>
+
+        <button onclick="wrong()">
+            ⭐ The Stars
+        </button>
+
+        <button onclick="correct()">
+            ❤️ The Heart
+        </button>
+
+    </div>
+
+    <div class="message" id="choiceMessage"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- PAGE 3 -->
+
+<div class="page hidden" id="page3">
+
+<div class="card">
+
+    <h1>You Found It ❤️</h1>
+
+    <p>
+        But the secret is still locked...
+    </p>
+
+    <div class="ring">
+
+        <div class="bigHeart"
+             onclick="unlock()">
+            ❤️
+        </div>
+
+    </div>
+
+    <button onclick="unlock()">
+        🔐 Unlock My Heart
+    </button>
+
+</div>
+
+</div>
+
+
+
+<!-- PAGE 4 -->
+
+<div class="page hidden" id="page4">
+
+<div class="card final">
+
+    <div class="bigHeart">
+        ❤️
+    </div>
+
+    <h2>A Little Message For You</h2>
+
+    <p class="finalText">
+
+        I could have written a thousand words...
+        <br><br>
+
+        But sometimes one person is enough
+        to make an ordinary day feel special. ✨
+        <br><br>
+
+        And somehow...
+        <br>
+
+        <b>you became that person. ❤️</b>
+
+    </p>
+
+    <button onclick="celebrate()">
+        💕 Keep This Secret
+    </button>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* SHOW PAGE */
+
+function show(id){
+
+    document.querySelectorAll(".page")
+    .forEach(p=>p.classList.add("hidden"));
+
+    document.getElementById(id)
+    .classList.remove("hidden");
+
+}
+
+
+/* START */
+
+function start(){
+
+    show("page2");
+
+    hearts(15);
+
+}
+
+
+/* WRONG BUTTON */
+
+function wrong(){
+
+    let msg=document.getElementById("choiceMessage");
+
+    msg.innerHTML=
+    "Hmm... nice try 😏<br>Try another one ❤️";
+
+    hearts(5);
+
+}
+
+
+/* CORRECT */
+
+function correct(){
+
+    let msg=document.getElementById("choiceMessage");
+
+    msg.innerHTML=
+    "You found the right one... ❤️";
+
+    setTimeout(()=>{
+
+        show("page3");
+
+        hearts(20);
+
+    },1200);
+
+}
+
+
+/* UNLOCK */
+
+function unlock(){
+
+    hearts(50);
+
+    setTimeout(()=>{
+
+        show("page4");
+
+    },700);
+
+}
+
+
+/* HEARTS */
+
+function makeHeart(){
+
+    let h=document.createElement("div");
+
+    h.className="heart";
+
+    let list=[
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💓",
+        "✨",
+        "🌹"
+    ];
+
+    h.innerHTML=
+    list[Math.floor(Math.random()*list.length)];
+
+    h.style.left=
+    Math.random()*100+"vw";
+
+    h.style.fontSize=
+    (20+Math.random()*30)+"px";
+
+    h.style.animationDuration=
+    (3+Math.random()*4)+"s";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>{
+        h.remove();
+    },7000);
+
+}
+
+
+/* HEART BURST */
+
+function hearts(number){
+
+    for(let i=0;i<number;i++){
+
+        setTimeout(
+            makeHeart,
+            i*40
+        );
+
+    }
+
+}
+
+
+/* FINAL */
+
+function celebrate(){
+
+    hearts(100);
+
+    setTimeout(()=>{
+
+        alert(
+        "🤫 Secret saved!\n\n"+
+        "But there's one thing I can't hide...\n"+
+        "You are special. ❤️"
+        );
+
+    },1000);
+
+}
+
+</script>
+
+</body>
+</html>
